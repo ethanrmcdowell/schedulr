@@ -15,8 +15,13 @@ export class AppComponent {
   signupPass2: string = '';
   loginVisible: boolean = false;
   signupVisible: boolean = false;
+  userAuthenticated: boolean = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+    this.authService.userAuthenticated$.subscribe(isAuthenticated => {
+      this.userAuthenticated = isAuthenticated;
+    });
+  }
 
   loginBtn() {
     this.authService.loginUser(this.loginEmail, this.loginPass, async (response) => {
@@ -50,5 +55,11 @@ export class AppComponent {
       this.loginVisible = false;
     }
     this.signupVisible = !this.signupVisible;
+  }
+
+  userLogout() {
+    this.authService.logOutUser((response) => {
+      console.log(response);
+    })
   }
 }

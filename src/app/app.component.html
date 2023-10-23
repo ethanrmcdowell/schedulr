@@ -3,7 +3,7 @@
     <mat-toolbar-row>
       <span>Schedulr</span>
       <span class="flexExpand"></span>
-      <span class="loginContainer">
+      <span class="loginContainer" *ngIf="!userAuthenticated">
         <button mat-button class="showLogin" (click)="showLogin()">
           Login
         </button>
@@ -11,9 +11,16 @@
           Sign Up
         </button>
       </span>
+      <span class="logoutContainer" *ngIf="userAuthenticated">
+        <button mat-button (click)="userLogout()">Logout</button>
+      </span>
     </mat-toolbar-row>
   </mat-toolbar>
 </header>
+
+<article>
+  <h3 style="padding: 20px">USER AUTHENTICATED: {{ userAuthenticated }}</h3>
+</article>
 
 <section>
   <!-- LOGIN SECTION -->
