@@ -21,6 +21,8 @@ export class LoginComponent {
     this.authService.loginUser(this.loginEmail, this.loginPass, async (response) => {
       if (response.success) {
         console.log("SUCCESS:", response);
+        console.log('User Authenticated:', this.userAuthenticated);
+        // location.href = "/users";
       } else {
         console.log("FAILURE:", response);
       }
