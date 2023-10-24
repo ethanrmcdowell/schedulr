@@ -24,37 +24,8 @@ export class AppComponent {
     });
   }
 
-  loginBtn() {
-    this.authService.loginUser(this.loginEmail, this.loginPass, async (response) => {
-      if (response.success) {
-        console.log("SUCCESS:", response);
-      } else {
-        console.log("FAILURE:", response);
-      }
-    })
-  }
-
-  signupBtn() {
-    this.authService.registerUser(this.signupEmail, this.signupPass, async (response) => {
-      if (response.success) {
-        console.log("SUCCESS:", response);
-      } else {
-        console.log("FAILURE:", response);
-      }
-    })
-  }
-
-  showLogin() {
-    if (this.signupVisible) this.signupVisible = false;
-    if (this.sideNavOpen) this.sideNavOpen = false;
-
-    this.loginVisible = true;
-  }
-
-  showSignup() {
-    if (this.loginVisible) this.loginVisible = false;
-    if (this.sideNavOpen) this.sideNavOpen = false;
-    this.signupVisible = true;
+  homeLink() {
+    location.href = ".";
   }
 
   userLogout() {

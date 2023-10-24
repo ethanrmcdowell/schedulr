@@ -1,0 +1,22 @@
+<mat-card>
+  <h2>Login</h2>
+  <mat-form-field>
+    <mat-label>E-mail</mat-label>
+    <input
+      [(ngModel)]="loginEmail"
+      type="email"
+      matInput
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input
+      [(ngModel)]="loginPass"
+      type="password"
+      matInput
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </mat-form-field>
+  <button mat-button (click)="loginBtn()" class="loginBtn">Login</button>
+</mat-card>

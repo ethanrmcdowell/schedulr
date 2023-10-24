@@ -1,7 +1,11 @@
-mat-card {
-    width: 40%;
-    margin: 20px auto 100px auto;
-    padding: 20px;
+mat-toolbar {
+    background: #7c51a1 !important;
+    color: #FFF;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
 }
 
 .loginContainer {
@@ -12,14 +16,10 @@ mat-card {
     flex: 1 1 auto;
 }
 
-mat-toolbar {
-    background: #7c51a1 !important;
-    color: #FFF;
-}
-
 .schedulrLogo {
     height: 100%;
     width: auto;
+    cursor: pointer;
 }
 
 .menuBtn {
