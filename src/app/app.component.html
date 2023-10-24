@@ -1,7 +1,10 @@
 <header>
-  <mat-toolbar color="primary">
+  <mat-toolbar>
     <mat-toolbar-row>
-      <span>Schedulr</span>
+      <button mat-icon-button class="menuBtn" (click)="openNavMenu()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <img src="../assets/schedulrLogo.png" class="schedulrLogo" />
       <span class="flexExpand"></span>
       <span class="loginContainer" *ngIf="!userAuthenticated">
         <button mat-button class="showLogin" (click)="showLogin()">
@@ -18,66 +21,95 @@
   </mat-toolbar>
 </header>
 
-<article>
-  <h3 style="padding: 20px">USER AUTHENTICATED: {{ userAuthenticated }}</h3>
-</article>
-
-<section>
-  <!-- LOGIN SECTION -->
-  <mat-card *ngIf="loginVisible && !signupVisible">
-    <h2>Login</h2>
-    <mat-form-field>
-      <mat-label>E-mail</mat-label>
-      <input
-        [(ngModel)]="loginEmail"
-        type="email"
-        matInput
-        [ngModelOptions]="{ standalone: true }"
-      />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Password</mat-label>
-      <input
-        [(ngModel)]="loginPass"
-        type="password"
-        matInput
-        [ngModelOptions]="{ standalone: true }"
-      />
-    </mat-form-field>
-    <button mat-button (click)="loginBtn()" class="loginBtn">Login</button>
-  </mat-card>
-  <!-- SIGN-UP SECTION -->
-  <mat-card *ngIf="!loginVisible && signupVisible">
-    <h2>Register</h2>
-    <mat-form-field>
-      <mat-label>E-mail</mat-label>
-      <input
-        [(ngModel)]="signupEmail"
-        type="email"
-        matInput
-        [ngModelOptions]="{ standalone: true }"
-      />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Password</mat-label>
-      <input
-        [(ngModel)]="signupPass"
-        type="password"
-        matInput
-        [ngModelOptions]="{ standalone: true }"
-      />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Repeat Password</mat-label>
-      <input
-        [(ngModel)]="signupPass2"
-        type="password"
-        matInput
-        [ngModelOptions]="{ standalone: true }"
-      />
-    </mat-form-field>
-    <button mat-button (click)="signupBtn()" class="loginBtn">Sign Up</button>
-  </mat-card>
-</section>
+<mat-sidenav-container autosize>
+  <mat-sidenav [opened]="sideNavOpen" mode="side">
+    <mat-nav-list>
+      <a mat-list-item>
+        <span class="entry">
+          <button mat-button class="showLogin" (click)="showLogin()">
+            Login
+          </button>
+        </span>
+      </a>
+      <a mat-list-item>
+        <span class="entry">
+          <button mat-button class="showLogin" (click)="showSignup()">
+            Sign Up
+          </button>
+        </span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <section>
+    <!-- HOME SECTION -->
+    <article class="introSection">
+      <h1>Say hello to an organized schedule!</h1>
+      <p>
+        Say goodbye to the hassle of back-and-forth emails and conflicting
+        calendars. With Schedulr, our scheduling application, it's easy for
+        anyone to schedule meetings with you. Simply create an account and
+        you'll be given a unique link to your Schedulr scheduler. Share this
+        link with anyone you want to meet with and they can easily book a time
+        that works for both of you. You can even add notes and details about the
+        meeting so you're always prepared.
+      </p>
+    </article>
+    <!-- LOGIN SECTION -->
+    <mat-card *ngIf="loginVisible && !signupVisible">
+      <h2>Login</h2>
+      <mat-form-field>
+        <mat-label>E-mail</mat-label>
+        <input
+          [(ngModel)]="loginEmail"
+          type="email"
+          matInput
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          [(ngModel)]="loginPass"
+          type="password"
+          matInput
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+      <button mat-button (click)="loginBtn()" class="loginBtn">Login</button>
+    </mat-card>
+    <!-- SIGN-UP SECTION -->
+    <mat-card *ngIf="!loginVisible && signupVisible">
+      <h2>Register</h2>
+      <mat-form-field>
+        <mat-label>E-mail</mat-label>
+        <input
+          [(ngModel)]="signupEmail"
+          type="email"
+          matInput
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          [(ngModel)]="signupPass"
+          type="password"
+          matInput
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Repeat Password</mat-label>
+        <input
+          [(ngModel)]="signupPass2"
+          type="password"
+          matInput
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+      <button mat-button (click)="signupBtn()" class="loginBtn">Sign Up</button>
+    </mat-card>
+  </section>
+</mat-sidenav-container>
 
 <router-outlet></router-outlet>

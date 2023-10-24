@@ -1,6 +1,6 @@
 mat-card {
     width: 40%;
-    margin: 100px auto;
+    margin: 20px auto 100px auto;
     padding: 20px;
 }
 
@@ -10,4 +10,46 @@ mat-card {
 
 .flexExpand {
     flex: 1 1 auto;
+}
+
+mat-toolbar {
+    background: #7c51a1 !important;
+    color: #FFF;
+}
+
+.schedulrLogo {
+    height: 100%;
+    width: auto;
+}
+
+.menuBtn {
+    display: none;
+}
+
+.introSection {
+    width: 40%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+    mat-card {
+        width: 90%;
+    }
+
+    .introSection {
+        width: 90%;
+    }
+
+    .loginContainer {
+        display: none;
+    }
+
+    .sidenav-container {
+        display: flex;
+    }
+
+    .menuBtn {
+        display: block;
+    }
 }
