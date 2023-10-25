@@ -11,10 +11,10 @@
       />
       <span class="flexExpand"></span>
       <span class="loginContainer" *ngIf="!userAuthenticated">
-        <a href="./login">
+        <a [routerLink]="'/login'">
           <button mat-button class="showLogin">Login</button>
         </a>
-        <a href="./signup/">
+        <a [routerLink]="'/signup'">
           <button mat-button class="showLogin">Sign Up</button>
         </a>
       </span>
@@ -25,25 +25,35 @@
   </mat-toolbar>
 </header>
 
-<mat-sidenav-container autosize>
+<mat-sidenav-container>
+  <mat-sidenav [opened]="sideNavOpen" mode="side">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/login'">Login</a>
+      <a mat-list-item [routerLink]="'/signup'">Sign Up</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <mat-sidenav-container autosize>
   <mat-sidenav [opened]="sideNavOpen" mode="side">
     <mat-nav-list>
       <a mat-list-item>
         <span class="entry">
-          <a href="./login">
+          <a href="'/login'">
             <button mat-button class="showLogin">Login</button>
           </a>
         </span>
       </a>
       <a mat-list-item>
         <span class="entry">
-          <a href="./signup">
+          <a href="'/signup'">
             <button mat-button class="showLogin">Sign Up</button>
           </a>
         </span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
-</mat-sidenav-container>
-
-<router-outlet></router-outlet>
+</mat-sidenav-container> -->

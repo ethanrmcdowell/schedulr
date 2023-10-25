@@ -33,10 +33,6 @@ a {
 }
 
 @media (max-width: 600px) {
-    mat-card {
-        width: 90%;
-    }
-
     .introSection {
         width: 90%;
     }

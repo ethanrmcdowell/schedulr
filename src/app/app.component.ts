@@ -36,5 +36,6 @@ export class AppComponent {
 
   openNavMenu() {
     this.sideNavOpen = !this.sideNavOpen;
+    console.log("SideNav open:", this.sideNavOpen);
   }
 }
